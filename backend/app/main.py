@@ -1,15 +1,38 @@
+from contextlib import asynccontextmanager
+from threading import Thread
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 
 from app.database import engine
 from app.audio import router as audio_router
+from app.worker import worker_loop
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Start the background audio-processing worker
+    worker_thread = Thread(
+        target=worker_loop,
+        daemon=True,
+        name="audio-worker",
+    )
+
+    worker_thread.start()
+
+    print("Background audio worker started.")
+
+    yield
+
+    print("FastAPI application shutting down.")
 
 
 app = FastAPI(
     title="Gnani Audio Notes API",
     description="Backend API for the Gnani Audio Notes Platform",
     version="1.0.0",
+    lifespan=lifespan,
 )
 
 
