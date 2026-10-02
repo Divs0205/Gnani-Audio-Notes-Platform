@@ -42,6 +42,7 @@ app.add_middleware(
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "https://gnani-audio-notes-platform-29fosf04j-divs0205.vercel.app",
+        "https://gnani-audio-notes-platform.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
