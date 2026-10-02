@@ -680,7 +680,7 @@ export default function ArchitecturePage() {
               </div>
 
               <a
-                href="YOUR_GITHUB_REPO_URL"
+                href="https://github.com/Divs0205/Gnani-Audio-Notes-Platform"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-between gap-8 border border-[#cfc5b7] bg-[#fffdf9] px-6 py-4 text-sm font-semibold transition-all hover:border-[#c96b4b] hover:text-[#a9563d]"
@@ -698,9 +698,6 @@ export default function ArchitecturePage() {
 
           </div>
 
-          <p className="mt-4 text-xs text-[#999187]">
-            Replace YOUR_GITHUB_REPO_URL with your actual GitHub repository.
-          </p>
 
         </section>
 
