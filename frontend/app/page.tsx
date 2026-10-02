@@ -175,7 +175,6 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-transparent text-[#292725]">
-
       <div className="mx-auto max-w-6xl px-6">
 
         {/* Header */}
@@ -455,7 +454,6 @@ export default function HomePage() {
         </footer>
 
       </div>
-
     </main>
   );
 }

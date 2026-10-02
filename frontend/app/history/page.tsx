@@ -115,7 +115,6 @@ export default function HistoryPage() {
 
   return (
     <main className="min-h-screen bg-transparent text-[#292725]">
-
       <div className="mx-auto max-w-6xl px-6">
 
         {/* Header */}
@@ -126,7 +125,6 @@ export default function HistoryPage() {
             href="/"
             className="flex items-center gap-3"
           >
-
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#c96b4b] text-white">
               <WaveformIcon />
             </div>
@@ -438,7 +436,6 @@ export default function HistoryPage() {
         </footer>
 
       </div>
-
     </main>
   );
 }
