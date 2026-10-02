@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f4ed;
+  --foreground: #292725;
+
+  --paper: #fffdf9;
+  --paper-soft: #fbf8f2;
+  --paper-muted: #f1ede4;
+
+  --border: #e2dbcf;
+  --border-light: #ebe5db;
+  --border-strong: #d3cabe;
+
+  --muted: #766f66;
+  --muted-light: #999187;
+
+  --accent: #c96b4b;
+  --accent-dark: #a9563d;
+  --accent-soft: #f8e9e2;
+
+  --success: #66856b;
+  --success-soft: #edf3ed;
+  --success-border: #b8cbb9;
+
+  --selection: #e8b7a5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  background: var(--background);
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+
+  background-color: var(--background);
+  background-image: url("/audio-notes-wallpaper.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+  color: var(--foreground);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: rgba(247, 244, 237, 0.60);
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--foreground);
+}
+
+button,
+a,
+label {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+
+/* ============================================================= */
+/* SCROLLBAR                                                       */
+/* ============================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4ccc0;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bdb3a5;
+}
+
+
+/* ============================================================= */
+/* ARCHITECTURE PAGE                                               */
+/* ============================================================= */
+
+.architecture-page {
+  position: relative;
+}
+
+
+/*
+ * The hero intentionally remains mostly transparent.
+ * This lets the wallpaper establish the visual identity.
+ */
+
+.architecture-page .architecture-hero {
+  position: relative;
+}
+
+
+/*
+ * Each major section gets spacing but not a giant translucent
+ * background. This prevents the page from looking like a
+ * collection of AI-generated dashboard panels.
+ */
+
+.architecture-page .architecture-section {
+  position: relative;
+}
+
+
+/*
+ * This is the main readability surface.
+ *
+ * It is intentionally much less transparent than the wallpaper
+ * while still allowing the background to subtly show through.
+ */
+
+.architecture-page .readable-panel {
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(216, 208, 195, 0.90);
+
+  background: rgba(255, 253, 249, 0.90);
+
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.75),
+    0 12px 35px rgba(91, 75, 58, 0.035);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+
+/*
+ * Small header inside architecture panels.
+ */
+
+.architecture-page .panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid rgba(226, 219, 207, 0.95);
+
+  padding: 13px 20px;
+
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  color: #888076;
+}
+
+
+/*
+ * Improve paragraph readability without creating
+ * heavy shadows.
+ */
+
+.architecture-page p {
+  text-shadow: 0 1px 0 rgba(255, 253, 249, 0.45);
+}
+
+
+/*
+ * Mobile adjustments.
+ */
+
+@media (max-width: 640px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .architecture-page .readable-panel {
+    background: rgba(255, 253, 249, 0.94);
+  }
+}
